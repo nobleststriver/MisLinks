@@ -5,7 +5,6 @@ function copyToClipboard(type) {
   const text = type === "email" ? email : discord;
   const element = document.getElementById(type + "-btn");
 
-  // Fallback para Safari
   const textarea = document.createElement("textarea");
   textarea.value = text;
   textarea.setAttribute("readonly", "");
@@ -27,7 +26,7 @@ function copyToClipboard(type) {
 function showCopied(element, type) {
   const original = element.textContent;
   element.textContent = "copiado";
-  element.style.color = "#000"; // negro o cualquier color que quieras
+  element.style.color = "#000";
   setTimeout(() => {
     element.textContent = original;
     element.style.color = "#ff000b";
