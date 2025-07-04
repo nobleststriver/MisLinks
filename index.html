@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>D9</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="My 2000s retro landing page" />
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <video class="bg-video" autoplay loop muted playsinline>
+      <source src="vid/bg.mp4" type="video/mp4" />
+      <source src="vid/bg.webm" type="video/webm" />
+    </video>
+
+    <header>
+      <a href="https://cebreros.tumblr.com" target="_blank">tumblr</a>
+      <a href="https://letterboxd.com/cebreros" target="_blank">letterboxd</a>
+      <a href="https://last.fm/user/jxvier" target="_blank">last.fm</a>
+      <a href="https://goodreads.com/nobleststriver" target="_blank"
+        >goodreads</a
+      >
+    </header>
+
+    <main class="main-section">
+      <img src="img/logo.png" alt="logo" class="logo" />
+    </main>
+
+    <footer>
+      <div class="footer-links">
+        <a href="https://steamcommunity.com/id/jxviercc" target="_blank"
+          >steam</a
+        >
+        <a href="https://serializd.com/user/cebreros" target="_blank"
+          >serializd</a
+        >
+        <a href="https://soundcloud.com/cebreros" target="_blank">soundcloud</a>
+        <a href="https://music.apple.com/profile/cebreros" target="_blank"
+          >apple music</a
+        >
+      </div>
+
+      <div class="contact-row">
+        <span class="copy-btn" onclick="copyToClipboard('email')">correo</span>
+        <span class="copied" id="email-copied" style="display: none"
+          >copiado!</span
+        >
+
+        <span class="copy-btn" onclick="copyToClipboard('discord')"
+          >discord</span
+        >
+        <span class="copied" id="discord-copied" style="display: none"
+          >copiado!</span
+        >
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
