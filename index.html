@@ -3,7 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <title>D9</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1 viewport-fit=cover"
+    />
     <meta name="description" content="My 2000s retro landing page" />
     <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="css/style.css" />
@@ -43,16 +47,14 @@
       </div>
 
       <div class="contact-row">
-        <span class="copy-btn" onclick="copyToClipboard('email')">correo</span>
-        <span class="copied" id="email-copied" style="display: none"
-          >copiado!</span
+        <span id="email-btn" class="copy-btn" onclick="copyToClipboard('email')"
+          >correo</span
         >
-
-        <span class="copy-btn" onclick="copyToClipboard('discord')"
+        <span
+          id="discord-btn"
+          class="copy-btn"
+          onclick="copyToClipboard('discord')"
           >discord</span
-        >
-        <span class="copied" id="discord-copied" style="display: none"
-          >copiado!</span
         >
       </div>
     </footer>
