@@ -13,6 +13,29 @@ body {
 
 html {
   height: -webkit-fill-available;
+  -webkit-filter: none !important;
+  filter: none !important;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  background: transparent;
+  pointer-events: none;
+  -webkit-filter: none !important;
+  filter: none !important;
+}
+
+:root {
+  --red-primary: #ff000b;
+  --red-hover: #800000;
+  --cyan-text: #00ffff;
+  --green-copied: #00ff00;
 }
 
 body {
@@ -30,6 +53,12 @@ body {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+
+  background: transparent !important;
+  background-color: transparent !important;
+
+  filter: none !important;
+  -webkit-filter: none !important;
 }
 
 .bg-video {
@@ -40,6 +69,17 @@ body {
   height: 100vh;
   object-fit: cover;
   z-index: -1;
+
+  filter: none !important;
+  -webkit-filter: none !important;
+  background: none !important;
+  mix-blend-mode: normal !important;
+}
+
+.bg-video,
+.bg-video * {
+  -webkit-appearance: none !important;
+  appearance: none !important;
 }
 
 header {
@@ -56,18 +96,28 @@ header {
 header a,
 .footer-links a,
 .copy-btn {
-  color: #ff000b;
+  color: var(--red-primary) !important;
   text-decoration: none;
   transition: 0.2s ease;
   cursor: pointer;
-  text-shadow: 0 0 5px #ff000b, 0 0 10px #ff000b, 0 0 20px #ff000b;
+  text-shadow: 0 0 5px var(--red-primary), 0 0 10px var(--red-primary),
+    0 0 20px var(--red-primary);
+
+  filter: none !important;
+  -webkit-filter: none !important;
+  -moz-filter: none !important;
 }
 
 header a:hover,
 .footer-links a:hover,
 .copy-btn:hover {
-  color: #800000;
-  text-shadow: 0 0 5px #800000, 0 0 10px #800000, 0 0 20px #800000;
+  color: var(--red-hover) !important;
+  text-shadow: 0 0 5px var(--red-hover), 0 0 10px var(--red-hover),
+    0 0 20px var(--red-hover);
+
+  filter: none !important;
+  -webkit-filter: none !important;
+  -moz-filter: none !important;
 }
 
 .main-section {
@@ -91,7 +141,9 @@ header a:hover,
   width: clamp(180px, 40vw, 280px);
   height: auto;
   filter: drop-shadow(0 0 10px #ff000b) drop-shadow(0 0 10px #ff000b)
-    drop-shadow(0 0 40px #ff000b);
+    drop-shadow(0 0 40px #ff000b) !important;
+  -webkit-filter: drop-shadow(0 0 10px #ff000b) drop-shadow(0 0 10px #ff000b)
+    drop-shadow(0 0 40px #ff000b) !important;
 }
 
 footer {
@@ -126,6 +178,9 @@ footer {
   color: #00ff00;
   margin-left: 4px;
   text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+
+  filter: none !important;
+  -webkit-filter: none !important;
 }
 
 @media (max-width: 600px) {
