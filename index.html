@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <title>D9</title>
@@ -9,8 +9,39 @@
       content="width=device-width, initial-scale=1 viewport-fit=cover"
     />
     <meta name="description" content="mis links :3" />
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="css/style.css?v=1.0.6" />
+
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="img/favicon-16x16.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="img/favicon-32x32.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="img/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="img/android-chrome-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="img/android-chrome-512x512.png"
+    />
+
+    <link rel="stylesheet" href="css/style.css?v=1.1.0" />
   </head>
 
   <body>
@@ -20,40 +51,83 @@
     </video>
 
     <header>
-      <a href="https://cebreros.tumblr.com" target="_blank">tumblr</a>
-      <a href="https://letterboxd.com/cebreros" target="_blank">letterboxd</a>
-      <a href="https://last.fm/user/jxvier" target="_blank">last.fm</a>
-      <a href="https://goodreads.com/nobleststriver" target="_blank"
-        >goodreads</a
-      >
+      <div class="header-buttons">
+        <div class="dropdown">
+          <span class="dropdown-btn" onclick="toggleDropdown('musica')"
+            >música</span
+          >
+        </div>
+
+        <div class="dropdown">
+          <span class="dropdown-btn" onclick="toggleDropdown('gaming')"
+            >gaming</span
+          >
+        </div>
+
+        <div class="dropdown">
+          <span class="dropdown-btn" onclick="toggleDropdown('logs')"
+            >logs</span
+          >
+        </div>
+
+        <div class="dropdown">
+          <span class="dropdown-btn" onclick="toggleDropdown('contacto')"
+            >contacto</span
+          >
+        </div>
+      </div>
     </header>
 
     <main class="main-section">
-      <img src="img/logo.png" alt="logo" class="logo" />
+      <a href="https://cebreros.tumblr.com" target="_blank">
+        <img src="img/logo.png" alt="logo" class="logo" />
+      </a>
     </main>
 
     <footer>
-      <div class="footer-links">
-        <a href="https://steamcommunity.com/id/jxviercc" target="_blank"
-          >steam</a
-        >
-        <a href="https://serializd.com/user/cebreros" target="_blank"
-          >serializd</a
-        >
+      <div id="musica" class="footer-dropdown-content">
+        <a href="https://last.fm/user/jxvier" target="_blank">last.fm</a>
         <a href="https://soundcloud.com/cebreros" target="_blank">soundcloud</a>
+        <a
+          href="https://open.spotify.com/user/31gbemtqjuzprppr7am44u7vqxga"
+          target="_blank"
+          >spotify</a
+        >
         <a href="https://music.apple.com/profile/cebreros" target="_blank"
           >apple music</a
         >
       </div>
 
-      <div class="contact-row">
-        <span id="email-btn" class="copy-btn" onclick="copyToClipboard('email')"
-          >correo</span
+      <div id="gaming" class="footer-dropdown-content">
+        <a href="https://namemc.com/cebreros" target="_blank">namemc</a>
+        <a href="https://psnprofiles.com/jxviercc" target="_blank">psn</a>
+        <a href="https://www.roblox.com/users/458329626" target="_blank"
+          >roblox</a
         >
-        <span
-          id="discord-btn"
-          class="copy-btn"
-          onclick="copyToClipboard('discord')"
+        <a href="https://steamcommunity.com/id/jxviercc" target="_blank"
+          >steam</a
+        >
+        <a href="https://www.xboxgamertag.com/search/jxviercc" target="_blank"
+          >xbox</a
+        >
+      </div>
+
+      <div id="logs" class="footer-dropdown-content">
+        <a href="https://www.backloggd.com/u/cebreros/" target="_blank"
+          >backloggd</a
+        >
+        <a href="https://goodreads.com/nobleststriver" target="_blank"
+          >goodreads</a
+        >
+        <a href="https://letterboxd.com/cebreros" target="_blank">letterboxd</a>
+        <a href="https://serializd.com/user/cebreros" target="_blank"
+          >serializd</a
+        >
+      </div>
+
+      <div id="contacto" class="footer-dropdown-content">
+        <span class="copy-btn" onclick="copyToClipboard('email')">correo</span>
+        <span class="copy-btn" onclick="copyToClipboard('discord')"
           >discord</span
         >
       </div>

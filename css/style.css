@@ -1,3 +1,7 @@
+/* ===========================================
+   base
+   =========================================== */
+
 * {
   margin: 0;
   padding: 0;
@@ -17,6 +21,40 @@ html {
   filter: none !important;
 }
 
+/* ===========================================
+   variables
+   =========================================== */
+
+:root {
+  --red-primary: #ff000b;
+  --red-hover: #800000;
+  --black-hover: #000000;
+  --copied-color: #ff000b;
+}
+
+/* ===========================================
+   layout / estructura
+   =========================================== */
+
+body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  padding-top: calc(1rem + env(safe-area-inset-top));
+  padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+  padding-left: calc(0.5rem + env(safe-area-inset-left));
+  padding-right: calc(0.5rem + env(safe-area-inset-right));
+  font-family: "Courier New", monospace;
+  color: #00ffff;
+  text-align: center;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: transparent !important;
+  background-color: transparent !important;
+  filter: none !important;
+  -webkit-filter: none !important;
+}
+
 body::before {
   content: "";
   position: fixed;
@@ -31,35 +69,9 @@ body::before {
   filter: none !important;
 }
 
-:root {
-  --red-primary: #ff000b;
-  --red-hover: #800000;
-  --cyan-text: #00ffff;
-  --green-copied: #00ff00;
-}
-
-body {
-  min-height: 100vh;
-  min-height: -webkit-fill-available;
-
-  padding-top: calc(1rem + env(safe-area-inset-top));
-  padding-bottom: calc(1rem + env(safe-area-inset-bottom));
-  padding-left: calc(0.5rem + env(safe-area-inset-left));
-  padding-right: calc(0.5rem + env(safe-area-inset-right));
-
-  font-family: "Courier New", monospace;
-  color: #00ffff;
-  text-align: center;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-
-  background: transparent !important;
-  background-color: transparent !important;
-
-  filter: none !important;
-  -webkit-filter: none !important;
-}
+/* ===========================================
+   bg video
+   =========================================== */
 
 .bg-video {
   position: fixed;
@@ -69,7 +81,6 @@ body {
   height: 100vh;
   object-fit: cover;
   z-index: -1;
-
   filter: none !important;
   -webkit-filter: none !important;
   background: none !important;
@@ -82,43 +93,55 @@ body {
   appearance: none !important;
 }
 
+/* ===========================================
+   header / nav
+   =========================================== */
+
 header {
   padding: calc(1rem + env(safe-area-inset-top)) 0.5rem 1rem 0.5rem;
   font-size: 1.4rem;
   letter-spacing: 1px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   gap: 1rem;
   flex-shrink: 0;
 }
 
-header a,
-.footer-links a,
-.copy-btn {
+.header-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-btn {
   color: var(--red-primary) !important;
   text-decoration: none;
   transition: 0.2s ease;
   cursor: pointer;
   text-shadow: 0 0 5px var(--red-primary), 0 0 10px var(--red-primary),
     0 0 20px var(--red-primary);
-
   filter: none !important;
   -webkit-filter: none !important;
   -moz-filter: none !important;
 }
 
-header a:hover,
-.footer-links a:hover,
-.copy-btn:hover {
+.dropdown-btn:hover {
   color: var(--red-hover) !important;
   text-shadow: 0 0 5px var(--red-hover), 0 0 10px var(--red-hover),
     0 0 20px var(--red-hover);
-
-  filter: none !important;
-  -webkit-filter: none !important;
-  -moz-filter: none !important;
 }
+
+/* ===========================================
+   principal / logo
+   =========================================== */
 
 .main-section {
   flex-grow: 1;
@@ -131,13 +154,16 @@ header a:hover,
   min-height: 0;
 }
 
+.main-section a {
+  pointer-events: auto;
+}
+
 .logo {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   -webkit-touch-callout: none;
-  pointer-events: none;
   width: clamp(180px, 40vw, 280px);
   height: auto;
   filter: drop-shadow(0 0 10px #ff000b) drop-shadow(0 0 10px #ff000b)
@@ -145,6 +171,10 @@ header a:hover,
   -webkit-filter: drop-shadow(0 0 10px #ff000b) drop-shadow(0 0 10px #ff000b)
     drop-shadow(0 0 40px #ff000b) !important;
 }
+
+/* ===========================================
+   footer / dropdown
+   =========================================== */
 
 footer {
   display: flex;
@@ -154,50 +184,63 @@ footer {
   font-size: 1.4rem;
   letter-spacing: 1px;
   flex-shrink: 0;
+  min-height: 60px;
 }
 
-.footer-links {
-  display: flex;
+.footer-dropdown-content {
+  display: none;
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
-  margin-bottom: 0;
+  margin-top: 0.5rem;
 }
 
-.contact-row {
+.footer-dropdown-content.active {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 1rem;
 }
 
-.copied {
-  display: inline-block;
-  font-size: 0.9rem;
-  color: #00ff00;
-  margin-left: 4px;
-  text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
-
+.footer-dropdown-content a,
+.footer-dropdown-content .copy-btn {
+  color: #666666 !important;
+  text-decoration: none;
+  transition: 0.2s ease;
+  cursor: pointer;
+  text-shadow: 0 0 5px #666666, 0 0 10px #666666, 0 0 20px #666666;
   filter: none !important;
   -webkit-filter: none !important;
+  -moz-filter: none !important;
+  white-space: nowrap;
 }
 
+.footer-dropdown-content a:hover,
+.footer-dropdown-content .copy-btn:hover {
+  background: transparent;
+  color: var(--black-hover) !important;
+  text-shadow: 0 0 5px var(--black-hover), 0 0 10px var(--black-hover),
+    0 0 20px var(--black-hover);
+}
+
+/* ===========================================
+   móvil
+   =========================================== */
+
 @media (max-width: 600px) {
-  header,
-  footer {
+  header {
     font-size: 1.2rem;
-    padding: calc(0.75rem + env(safe-area-inset-top)) 1rem
-      calc(0.75rem + env(safe-area-inset-bottom)) 1rem;
+    padding: calc(0.75rem + env(safe-area-inset-top)) 1rem 1rem 1rem;
+  }
+
+  .header-buttons {
+    gap: 0.75rem;
+  }
+
+  .footer-dropdown-content.active {
+    gap: 0.75rem;
+    font-size: 1.1rem;
   }
 
   .logo {
     width: 65vw;
-  }
-
-  .footer-links,
-  .contact-row {
-    gap: 1rem;
   }
 
   .main-section {
